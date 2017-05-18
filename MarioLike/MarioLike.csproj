@@ -81,8 +81,11 @@
     <Compile Include="Assets\Script\Bonus.cs" />
     <Compile Include="Assets\Script\Camera.cs" />
     <Compile Include="Assets\Script\MooveOrc.cs" />
+    <Compile Include="Assets\Script\NewGame.cs" />
+    <Compile Include="Assets\Script\Pick.cs" />
     <Compile Include="Assets\Script\Score.cs" />
     <Compile Include="Assets\Script\fallPlateform.cs" />
+    <Compile Include="Assets\Script\spawner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
