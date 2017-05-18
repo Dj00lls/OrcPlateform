@@ -19,6 +19,7 @@ public class BasicEnnemy : MonoBehaviour {
 	private float AttackSpeed = 1.0f;
 	private float nextFire;
 	private float Direction;
+    public LayerMask DommageLayer;
 
 	private void Awake()
 	{
@@ -48,7 +49,7 @@ public class BasicEnnemy : MonoBehaviour {
 		Distance = Vector3.Distance (transform.position, Player.position);
 		anim.SetFloat ("Distance", Mathf.Abs (Distance));
 		Direction = Player.position.x - transform.position.x;
-		if (Distance <= 12.0f) {
+		if (Distance <= 15.0f) {
 			Follow = true;	
 			if (Direction < 0 && walkingDirection > 0) {
 				Flip ();
@@ -73,7 +74,10 @@ public class BasicEnnemy : MonoBehaviour {
 			}
 
 		}AttackSpeed = 2.0f;
-	}
+
+        if (Physics2D.OverlapCircle(this.transform.position, 1f, DommageLayer))
+            Destroy(this.gameObject);
+    }
 		
 
 	private void Flip(){
@@ -82,5 +86,5 @@ public class BasicEnnemy : MonoBehaviour {
 		v.x *= -1;
 		transform.localScale = v;
 	}
-		
+
 }

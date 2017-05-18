@@ -12,7 +12,11 @@ public class MooveOrc : MonoBehaviour {
     public LayerMask gameOverLayer;
     public LayerMask spawnerLayer;
     public LayerMask pickLayer;
+    public LayerMask DommageLayer;
     private spawner other;
+    public Transform DommagePrefab;
+    public Transform Spawnpoint;
+    public LayerMask BasicEnnemy;
     void Start () {
         anim = GetComponent<Animator>();
     }
@@ -35,10 +39,7 @@ public class MooveOrc : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             anim.SetTrigger("special");
-            if (Physics2D.OverlapCircle(this.transform.position, 1f, spawnerLayer))
-            {
-                other.HitSpawner();
-            }
+            Transform t = Instantiate(this.DommagePrefab, this.Spawnpoint.position, this.Spawnpoint.rotation) as Transform;
         }
         if (Input.GetKeyDown(KeyCode.Space) && Physics2D.OverlapCircle(this.transform.position, 0.5f, groundLayer))
             rigidbody2D.AddForce(new Vector2(0, jump));
@@ -48,11 +49,12 @@ public class MooveOrc : MonoBehaviour {
             this.transform.position += Vector3.up * Input.GetAxis("Vertical") * Time.deltaTime * speed;
         if (Physics2D.OverlapCircle(this.transform.position, 0.5f, pickLayer))
         {
-            Debug.Log("Test");
-            //rigidbody2D.AddForce(new Vector2(0, 100f));
-
             this.transform.GetComponent<Collider2D>().isTrigger= true;
         }
+        if (Physics2D.OverlapCircle(this.transform.position, 0.5f, DommageLayer))
+            Application.LoadLevel(Application.loadedLevel);
+        if (Physics2D.OverlapCircle(this.transform.position, 0.5f, BasicEnnemy))
+            Application.LoadLevel(Application.loadedLevel);
     }
     public void Flip()
     {

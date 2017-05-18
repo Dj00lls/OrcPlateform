@@ -78,8 +78,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\BasicEnnemy.cs" />
     <Compile Include="Assets\Script\Bonus.cs" />
+    <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\Camera.cs" />
+    <Compile Include="Assets\Script\DistanceEnnemy.cs" />
+    <Compile Include="Assets\Script\DommageBox.cs" />
+    <Compile Include="Assets\Script\Ennemy.cs" />
+    <Compile Include="Assets\Script\FlyingEnnemy.cs" />
     <Compile Include="Assets\Script\MooveOrc.cs" />
     <Compile Include="Assets\Script\NewGame.cs" />
     <Compile Include="Assets\Script\Pick.cs" />

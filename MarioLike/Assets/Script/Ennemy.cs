@@ -12,7 +12,7 @@ public class Ennemy : MonoBehaviour {
 
 	} 
 	void OnCollisionEnter(Collision col) { 
-		if (col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "PlayerDegat" )
 		{ 
 			Destroy(col.gameObject); 
 		} 
