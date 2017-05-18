@@ -2,10 +2,14 @@
 
 commande:
 
-espace = saut
-z = frapper
-Touches directionnelles = se déplacer
+espace = saut /
+
+z = frapper /
+
+Touches directionnelles = se déplacer/
+
+echap = reset le level
 
 objectif:
 
-Finir le niveaux avec le maximum de points. Vous n'avez que une vie.
+Finir le niveaux. Vous n'avez que une vie.
